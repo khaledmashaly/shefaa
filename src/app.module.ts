@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
+import { SlotModule } from './slot/slot.module';
 
 @Module({
-  imports: [],
+  imports: [SlotModule],
   controllers: [],
   providers: [],
 })
