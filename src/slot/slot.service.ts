@@ -20,4 +20,8 @@ export class SlotService {
 
     return newSlot;
   }
+
+  list() {
+    return this.slots;
+  }
 }
