@@ -1,6 +1,6 @@
 import { Controller, Post, Body, Get } from '@nestjs/common';
-import { SlotService } from './slot.service';
-import { AddSlotDto } from './dto/add-slot.dto';
+import { AddSlotDto } from '../dto/add-slot.dto';
+import { SlotService } from '../../business/services/slot.service';
 
 @Controller('slot')
 export class SlotController {
