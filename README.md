@@ -95,3 +95,9 @@ $ npm run test:cov
 
 - body
     - status: COMPLETED | CANCELLED
+
+# TODO
+
+## Doctor Availability Module
+
+- [ ] Validate time for new slots

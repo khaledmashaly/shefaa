@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { SlotModule } from './slot/slot.module';
+import { DoctorAvailabilityModule } from './doctor-availability/doctor-availability.module';
 import { AppointmentModule } from './appointment/appointment.module';
 
 @Module({
-  imports: [SlotModule, AppointmentModule],
+  imports: [DoctorAvailabilityModule, AppointmentModule],
   controllers: [],
   providers: [],
 })
