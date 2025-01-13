@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Slot } from '../entities/slot.entity';
+import { UUID } from 'node:crypto';
 
 @Injectable()
 export class SlotRepo {
@@ -12,5 +13,9 @@ export class SlotRepo {
 
   list(): Slot[] {
     return this.slots;
+  }
+
+  getById(id: UUID): Slot | undefined {
+    return this.slots.find((slot) => slot.id === id);
   }
 }
