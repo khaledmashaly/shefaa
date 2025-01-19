@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { AppointmentEntity } from '../../entities/appointment.entity';
-import { Appointment } from '../../../../core/models/appointment';
-import { AppointmentStatus } from '../../../../core/models/appointment-status';
+import { Appointment } from '../../../core/models/appointment';
+import { AppointmentStatus } from '../../../core/models/appointment-status';
+import { AppointmentEntity } from '../entities/appointment.entity';
 
 @Injectable()
 export class AppointmentDomainMapper {
