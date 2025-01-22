@@ -7,12 +7,12 @@ import { SlotRepo } from '../../data/repos/slot.repo';
 export class SlotService {
   constructor(private readonly slotRepo: SlotRepo) {}
 
-  add(params: AddSlotParams) {
+  add(params: AddSlotParams): Slot {
     const slot = this.createSlot(params);
     return this.slotRepo.add(slot);
   }
 
-  list() {
+  list(): Slot[] {
     return this.slotRepo.list();
   }
 
