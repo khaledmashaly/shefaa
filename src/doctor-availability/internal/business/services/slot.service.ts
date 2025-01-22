@@ -24,6 +24,7 @@ export class SlotService {
     newSlot.doctorId = params.doctorId;
     newSlot.doctorName = params.doctorName;
     newSlot.cost = params.cost;
+    newSlot.isReserved = false;
 
     return newSlot;
   }
