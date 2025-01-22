@@ -18,4 +18,8 @@ export class SlotRepo {
   getById(id: UUID): Slot | undefined {
     return this.slots.find((slot) => slot.id === id);
   }
+
+  listAvailable(): Slot[] {
+    return this.slots.filter((slot) => slot.isReserved === false);
+  }
 }

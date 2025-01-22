@@ -8,4 +8,8 @@ export class DoctorAvailabilityApi {
   getSlotById(id: UUID): SlotReadDto | undefined {
     return this.slotRepo.getById(id);
   }
+
+  listAvailableSlots(): SlotReadDto[] {
+    return this.slotRepo.listAvailable();
+  }
 }
