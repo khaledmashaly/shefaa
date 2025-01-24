@@ -3,5 +3,5 @@ import { SlotReadDto } from '../../../../doctor-availability/shared/dto/slot-rea
 
 export abstract class IDoctorAvailabilityGateway {
   abstract listAvailableSlots(): SlotReadDto[];
-  abstract getSlotById(id: UUID): SlotReadDto | undefined;
+  abstract reserveSlot(id: UUID): SlotReadDto | undefined;
 }

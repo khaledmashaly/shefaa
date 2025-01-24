@@ -8,8 +8,8 @@ import { Injectable } from '@nestjs/common';
 export class DoctorAvailabilityGateway implements IDoctorAvailabilityGateway {
   constructor(private readonly doctorAvailabilityApi: DoctorAvailabilityApi) {}
 
-  getSlotById(id: UUID): SlotReadDto | undefined {
-    return this.doctorAvailabilityApi.getSlotById(id);
+  reserveSlot(id: UUID): SlotReadDto | undefined {
+    return this.doctorAvailabilityApi.reserveSlot(id);
   }
 
   listAvailableSlots(): SlotReadDto[] {
