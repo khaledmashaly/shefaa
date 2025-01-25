@@ -6,6 +6,7 @@ import { appointmentManagementApiMappers } from './internal/shell/api/mappers';
 import { appointmentManagementDomainMappers } from './internal/shell/db/mappers';
 import { AppointmentRepo } from './internal/core/contracts/appointment.repo';
 import { InMemoryAppointmentRepo } from './internal/shell/db/repos/in-memory-appointment.repo';
+import { AppointmentManagementApi } from './shared/apis/appointment-management.api';
 
 const appointmentManagementRepos = [
   {
@@ -22,6 +23,8 @@ const appointmentManagementRepos = [
     ...appointmentManagementQueryHandlers,
     ...appointmentManagementDomainMappers,
     ...appointmentManagementRepos,
+    AppointmentManagementApi,
   ],
+  exports: [AppointmentManagementApi],
 })
 export class AppointmentManagementModule {}
