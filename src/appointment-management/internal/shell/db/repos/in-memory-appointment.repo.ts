@@ -4,12 +4,16 @@ import { Appointment } from '../../../core/models/appointment';
 import { AppointmentEntity } from '../entities/appointment.entity';
 import { AppointmentDomainMapper } from '../mappers/appointment.domain-mapper';
 import { Injectable } from '@nestjs/common';
+import { MessageQueue } from '../../../../../shared/infrastructure/message-queue';
 
 @Injectable()
 export class InMemoryAppointmentRepo implements AppointmentRepo {
   private appointments: AppointmentEntity[] = [];
 
-  constructor(private readonly mapper: AppointmentDomainMapper) {}
+  constructor(
+    private readonly mapper: AppointmentDomainMapper,
+    private readonly messageQueue: MessageQueue,
+  ) {}
 
   getById(id: UUID): Appointment | undefined {
     const appointment = this.appointments.find((a) => a.id === id);
@@ -29,6 +33,11 @@ export class InMemoryAppointmentRepo implements AppointmentRepo {
 
     if (existingIndex === -1) {
       this.appointments.push(entity);
+
+      this.messageQueue.publish({
+        topic: 'appointment.created',
+        payload: entity,
+      });
     } else {
       this.appointments[existingIndex] = entity;
     }
