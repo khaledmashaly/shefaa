@@ -3,7 +3,9 @@ import { AppointmentRepo } from '../../../core/contracts/appointment.repo';
 import { Appointment } from '../../../core/models/appointment';
 import { AppointmentEntity } from '../entities/appointment.entity';
 import { AppointmentDomainMapper } from '../mappers/appointment.domain-mapper';
+import { Injectable } from '@nestjs/common';
 
+@Injectable()
 export class InMemoryAppointmentRepo implements AppointmentRepo {
   private appointments: AppointmentEntity[] = [];
 
