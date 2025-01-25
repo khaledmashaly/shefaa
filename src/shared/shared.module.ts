@@ -13,4 +13,4 @@ const messageQueueProvider = {
   providers: [messageQueueProvider],
   exports: [messageQueueProvider],
 })
-export class ShareModule {}
+export class SharedModule {}

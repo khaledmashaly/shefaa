@@ -6,11 +6,11 @@ import { EventEmitter2 } from '@nestjs/event-emitter';
 export class InMemoryMessageQueue implements MessageQueue {
   constructor(private readonly eventEmitter: EventEmitter2) {}
 
-  publish({ topic, payload }: PublishParams): void {
+  publish<P>({ topic, payload }: PublishParams<P>): void {
     this.eventEmitter.emit(topic, payload);
   }
 
-  subscribe({ topic, callback }: SubscribeParams): void {
+  subscribe<P>({ topic, callback }: SubscribeParams<P>): void {
     this.eventEmitter.on(topic, callback);
   }
 }

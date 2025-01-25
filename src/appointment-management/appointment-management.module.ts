@@ -7,6 +7,7 @@ import { appointmentManagementDomainMappers } from './internal/shell/db/mappers'
 import { AppointmentRepo } from './internal/core/contracts/appointment.repo';
 import { InMemoryAppointmentRepo } from './internal/shell/db/repos/in-memory-appointment.repo';
 import { AppointmentManagementApi } from './shared/apis/appointment-management.api';
+import { SharedModule } from '../shared/shared.module';
 
 const appointmentManagementRepos = [
   {
@@ -16,6 +17,7 @@ const appointmentManagementRepos = [
 ];
 
 @Module({
+  imports: [SharedModule],
   controllers: appointmentManagementControllers,
   providers: [
     ...appointmentManagementApiMappers,

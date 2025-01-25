@@ -1,21 +1,14 @@
 export abstract class MessageQueue {
-  abstract publish(params: PublishParams): void;
-  abstract subscribe(params: SubscribeParams): void;
+  abstract publish<P>(params: PublishParams<P>): void;
+  abstract subscribe<P>(params: SubscribeParams<P>): void;
 }
 
-type JsonValue =
-  | string
-  | number
-  | boolean
-  | { [x: string]: JsonValue }
-  | JsonValue[];
-
-export type PublishParams = {
+export type PublishParams<P> = {
   topic: string;
-  payload: JsonValue;
+  payload: P;
 };
 
-export type SubscribeParams = {
+export type SubscribeParams<P> = {
   topic: string;
-  callback: (payload: JsonValue) => void;
+  callback: (payload: P) => void;
 };
