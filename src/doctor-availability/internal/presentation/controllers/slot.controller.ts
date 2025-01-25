@@ -9,7 +9,10 @@ export class SlotController {
 
   @Post()
   add(@Body() addSlotDto: AddSlotDto): Slot {
-    return this.slotService.add(addSlotDto);
+    return this.slotService.add({
+      ...addSlotDto,
+      time: new Date(addSlotDto.time),
+    });
   }
 
   @Get()

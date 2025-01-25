@@ -1,7 +1,7 @@
 import { UUID } from 'node:crypto';
 
 export class AddSlotDto {
-  time: Date;
+  time: string;
   doctorId: UUID;
   doctorName: string;
   cost: number;
