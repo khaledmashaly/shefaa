@@ -8,7 +8,7 @@ import { Injectable } from '@nestjs/common';
 export class DoctorAvailabilityGateway implements IDoctorAvailabilityGateway {
   constructor(private readonly doctorAvailabilityApi: DoctorAvailabilityApi) {}
 
-  reserveSlot(id: UUID): SlotReadDto | undefined {
+  reserveSlot(id: UUID): SlotReadDto {
     return this.doctorAvailabilityApi.reserveSlot(id);
   }
 
